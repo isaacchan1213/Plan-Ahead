@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="navbar">
+        <h1>Plan Ahead</h1>
+    </div>
+
+    <div id="about">
+        <h2>Non-Negotiable Times (Work, Meetings, Etc.):</h2>
+        <form id="non-negotiable-times-form">
+            <label for="event-name">Event Name:</label>
+            <input type="text" id="event-name" name="event-name" placeholder="Event Name">
+            <label for="start-time">Start Time:</label>
+            <input type="time" id="start-time" name="start-time">
+            <label for="end-time">End Time:</label>
+            <input type="time" id="end-time" name="end-time">
+            <button type="submit">Add Event</button>
+        </form>
+    </div>
+
+    <div id="schedule-inputs">
+        <h2>Daily Schedule and Preferences:</h2>
+        <form id="schedule-preferences-form">
+            <label for="day-start">When do you start your day?</label>
+            <input type="time" id="day-start" name="day-start">
+            
+            <label for="day-end">When do you end your day?</label>
+            <input type="time" id="day-end" name="day-end">
+            
+            <label for="study-hours">How many hours a week would you like to study?</label>
+            <input type="number" id="study-hours" name="study-hours" placeholder="Hours">
+            
+            <label for="free-time-hours">How many hours a week would you like free time?</label>
+            <input type="number" id="free-time-hours" name="free-time-hours" placeholder="Hours">
+            
+            <button type="submit">Submit Preferences</button>
+        </form>
+    </div>
+
+    <div id="experiences">
+        <h2>Upload your BU Schedule here!:</h2>
+        <div class="upload-box">
+            <input type="file" id="imageUpload" accept="image/*">
+            <img id="imagePreview" src="" alt="Image preview..." style="display: none;">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
