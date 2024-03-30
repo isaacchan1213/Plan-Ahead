@@ -11,7 +11,41 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# Members (example) API route
+from io import BytesIO
+from flask import jsonify, request
+
+@app.route('/url_route', methods=['POST'])
+def file_validate():
+    """Handles the upload of a file."""
+    d = {}
+    try:
+        file = request.files['file_from_react']
+        filename = file.filename
+        print(f"Uploading file {filename}")
+        file_bytes = file.read()
+        file_content = BytesIO(file_bytes).readlines()
+        print(file_content)
+        d['status'] = 1
+        print('huh?')
+
+    except Exception as e:
+        print(f"Couldn't upload file {e}")
+        d['status'] = 0
+
+    return jsonify(d)
+
+@app.route('/save_as_json', methods=['POST'])
+def upload_file():
+    file = request.files['file_from_react']
+    filename = file.filename
+    print(f"Uploading file {filename}")
+    file_bytes = file.read()
+    file_content = BytesIO(file_bytes).readlines()
+    print(file_content)
+
+    return jsonify(file_content)
+
+
 @app.route("/add_todo", methods=["POST"])
 def add_todo():
     print("data entered flask")
@@ -20,7 +54,7 @@ def add_todo():
     print(todo_data)
     return todo_data
 
-
+# Members (example) API route
 @app.route("/members")
 def members():
     return {"members": ["Member 1", "Member 2", "Member 3"]}
