@@ -20,6 +20,8 @@ def file_validate():
     d = {}
     try:
         file = request.files['file_from_react']
+        print(dir(file))
+        print(file)
         filename = file.filename
         print(f"Uploading file {filename}")
         file_bytes = file.read()
